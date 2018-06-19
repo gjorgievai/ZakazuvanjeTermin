@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ZakazuvanjeTermin.Models.Pacient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Креирај нов пациент", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMBG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMBG)
+        </td>
+        <td>
+            @Html.ActionLink("Измени", "Edit", new { id = item.Id }) 
+            @Html.ActionLink("Детали", "Details", new { id = item.Id }) 
+            @Html.ActionLink("Избриши", "Delete", new { id = item.Id })
+            @Html.ActionLink("Додади рецепта", "AddPacientRecept", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

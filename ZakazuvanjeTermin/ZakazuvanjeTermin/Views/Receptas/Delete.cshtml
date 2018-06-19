@@ -1,0 +1,48 @@
+﻿@model ZakazuvanjeTermin.Models.Recepta
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Избриши</h2>
+
+<h3>Дали сте сигурни дека сакате да ја избришете рецептата?</h3>
+<div>
+    <h4>Recepta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.miligrami)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.miligrami)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dozvolenaDoza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dozvolenaDoza)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад кон листата", "Index")
+        </div>
+    }
+</div>

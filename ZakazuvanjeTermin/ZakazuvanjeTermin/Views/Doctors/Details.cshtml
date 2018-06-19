@@ -1,0 +1,41 @@
+﻿@model ZakazuvanjeTermin.Models.Doctor
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Измени", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад кон листата", "Index")
+</p>
+<h1>Листа на пациенти:</h1>
+<ul>
+    @foreach(var item in Model.pacients)
+    {
+    <li><a href="/Pacients/Details/@item.Id">@item.FirstName @item.LastName</a></li>
+
+    }
+</ul>

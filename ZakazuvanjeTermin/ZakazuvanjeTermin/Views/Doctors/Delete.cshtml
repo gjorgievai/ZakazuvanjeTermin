@@ -1,0 +1,39 @@
+﻿@model ZakazuvanjeTermin.Models.Doctor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Избриши</h2>
+
+<h3>Дали сте сигурни дека сакате да го избришете докторот?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад кон листата", "Index")
+        </div>
+    }
+</div>
